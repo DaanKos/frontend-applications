@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/DaanKos/frontend-applications#readme",
   "dependencies": {
-    "camelcase": "^5.3.1"
+    "camelcase": "^5.3.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }
