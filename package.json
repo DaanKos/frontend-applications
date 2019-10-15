@@ -1,0 +1,19 @@
+{
+  "name": "gh",
+  "version": "1.0.0",
+  "description": "Tech Track Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaanKos/frontend-applications.git"
+  },
+  "author": "Daan Kos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaanKos/frontend-applications/issues"
+  },
+  "homepage": "https://github.com/DaanKos/frontend-applications#readme"
+}
