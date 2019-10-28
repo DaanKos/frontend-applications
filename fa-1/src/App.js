@@ -24,21 +24,16 @@ class App extends Component {
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         PREFIX edm: <http://www.europeana.eu/schemas/edm/>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-        SELECT ?cho ?date ?title ?type ?pic WHERE {
-            ?cho dc:title ?title .
+        SELECT ?cho ?date ?title ?typeLabel ?pic WHERE {
+            <http://hdl.handle.net/20.500.11840/termmaster15122> skos:narrower* ?visual .
+        ?cho dc:title ?title .
             ?cho dct:created ?date .
             ?cho edm:isShownBy ?pic .
-            ?cho dc:type ?type .
-            FILTER (!REGEX (?type, "Foto"))
-            FILTER (!REGEX (?type, "Negatief"))
-            FILTER (!REGEX (?type, "foto"))
-            FILTER (!REGEX (?type, "Dia"))
-            FILTER (!REGEX (?type, "Repronegatief"))
-            FILTER (!REGEX (?type, "Lichtbeeld"))
-            FILTER (!REGEX (?type, "negatief"))
-            FILTER (!REGEX (?type, "kleurendia"))
-            FILTER (xsd:integer(?date))
+            ?cho edm:object ?type .
+        MINUS {?cho edm:object ?visual .}
+        FILTER (xsd:integer(?date))
             FILTER langMatches(lang(?title), "ned")
+        ?type skos:prefLabel ?typeLabel .
         } LIMIT 250
         `
         const runQuery = (url, query) => {
