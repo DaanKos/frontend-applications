@@ -1,3 +1,4 @@
+// This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
 // import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 

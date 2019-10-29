@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-// import Todos from './components/Todos';
-// import AddTodo from './components/AddTodo';
 import Objects from './components/Objects';
 import About from './components/pages/About';
+// This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
 // import uuid from 'uuid';
 // import axios from 'axios';
 import './App.css';
@@ -15,7 +14,9 @@ class App extends Component {
     }
 
     runQuery = () => {
-            //Github CMDA
+          // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
+          // I have edited the code to fit my needs and use my own endpoint
+          //Github CMDA
           const url ="https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-17/sparql"
           //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
           const query = `
@@ -47,6 +48,9 @@ class App extends Component {
               
             let results = json.results.bindings;
             let itemArray = [];
+            
+            // The following piece of code was written by Giovanni Kaaijk, from https://github.com/GiovanniKaaijk/frontend-applications/blob/master/my-app/src/App.js
+            // I have edited the code to fit my needs
             let unique = [];
             for(let i=0; i<json.results.bindings.length; i++){
               if(unique.includes(json.results.bindings[i].title.value)) {
@@ -56,10 +60,12 @@ class App extends Component {
               }
             }
             
+            // The following piece of code was written by user CMS, from https://stackoverflow.com/a/281335
             let filteredResults = results.filter(function (el) {
               return el != undefined;
             });
   
+            // The following piece of code was written by Kyle Bot, from https://github.com/kylebot0/frontend-applications/blob/master/client/src/app.js
             for(let i=0; i < filteredResults.length; i++){
                 var item = filteredResults[Math.floor(Math.random() * filteredResults.length)];
                 itemArray.push(item);
@@ -77,6 +83,7 @@ class App extends Component {
         this.runQuery();
     }
 
+    // This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
     // // Toggle Complete
     // markComplete = (id) => {
     //     this.setState( { todos: this.state.todos.map(todo => {
