@@ -62,4 +62,5 @@ Die voorwaarden zijn als volgt:
 * Het herkomstjaar is beschikbaar en is een geheel getal (bijv. "1978")
 
 ## Credits
-* Hulp van Giovanni van 
+* [Hulp van Giovanni Kaaijk](https://github.com/GiovanniKaaijk)
+* [Hulp van Kyle Bot](https://github.com/kylebot0)
