@@ -20,6 +20,8 @@ Klik hier om de applicatie te gebruiken/bekijken
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * Functionaliteit van het spel werkt niet
+* Er worden objecten uit de database gehaald die foto's zijn
+* Er worden objecten uit de database gehaald die geen vast jaartal hebben maar een range (bijv. "1870 - 1890")
 * De styling is ondermaats
 * Er zit nog oude code die niet meer gebruikt wordt in de code, dit is uitgecomment maar moet nog weg
 
