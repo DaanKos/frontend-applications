@@ -2,6 +2,8 @@
 
 Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolgd van 14-10-2019 t/m 29-10-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
 
+![](https://i.imgur.com/JwHwQwU.png)
+
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
 * [Bekende fouten](#bekende-fouten)
@@ -18,7 +20,8 @@ Klik hier om de applicatie te gebruiken/bekijken
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * Functionaliteit van het spel werkt niet
-* Het weergeven van 2 nieuwe objecten vereist een refresh
+* Er worden objecten uit de database gehaald die foto's zijn
+* Er worden objecten uit de database gehaald die geen vast jaartal hebben maar een range (bijv. "1870 - 1890")
 * De styling is ondermaats
 * Er zit nog oude code die niet meer gebruikt wordt in de code, dit is uitgecomment maar moet nog weg
 
