@@ -3,14 +3,14 @@
 Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolgd van 14-10-2019 t/m 29-10-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
 
 ## Inhoud
-Link naar de applicatie
-Bekende bugs
-Introductie
-Doelgroep
-Het concept
-Hoe het werkt
-Gebruikte data
-Credits
+* Link naar de applicatie
+* Bekende bugs
+* Introductie
+* Doelgroep
+* Het concept
+* Hoe het werkt
+* Gebruikte data
+* Credits
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
@@ -43,5 +43,10 @@ Wanneer de gebruiker het juiste antwoord heeft gegeven, gaat zijn score omhoog e
 Gaf de gebruiker het verkeerde antwoord, dan eindigt het spel en is er een button beschikbaar waarmee hij het spel opnieuw kan starten.
 
 ## Gebruikte data
-
-
+In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen.
+Die voorwaarden zijn als volgt:
+* Het betreft een fysiek object, geen "foto", "negatief", "dia" etc.
+* Er is een foto van het object beschikbaar
+* Er is een nederlandse titel beschikbaar
+* Er is een uri beschikbaar
+* Het herkomstjaar is beschikbaar en is een geheel getal (bijv. "1978")
