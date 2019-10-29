@@ -4,13 +4,20 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 
 ## Inhoud
 * Link naar de applicatie
-* Bekende bugs
+* Bekende fouten
 * Introductie
 * Doelgroep
 * Het concept
 * Hoe het werkt
 * Gebruikte data
 * Credits
+
+## Bekende fouten
+Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
+* Functionaliteit van het spel werkt niet
+* Het weergeven van 2 nieuwe objecten vereist een refresh
+* De styling is ondermaats
+* Er zit nog oude code die niet meer gebruikt wordt in de code, dit is uitgecomment maar moet nog weg
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
