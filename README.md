@@ -4,13 +4,13 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
-* Bekende fouten
-* Introductie
-* Doelgroep
-* Het concept
-* Hoe het werkt
-* Gebruikte data
-* Credits
+* [Bekende fouten](#bekende-fouten)
+* [Introductie](#introductie)
+* [Doelgroep](#doelgroep)
+* [Het concept](#het-concept)
+* [Hoe het werkt](#hoe-het-werkt)
+* [Gebruikte data](#gebruikte-date)
+* [Credits](#credits)
 
 ## Link naar de applicatie
 Klik hier om de applicatie te gerbuiken/bekijken
@@ -60,3 +60,6 @@ Die voorwaarden zijn als volgt:
 * Er is een nederlandse titel beschikbaar
 * Er is een uri beschikbaar
 * Het herkomstjaar is beschikbaar en is een geheel getal (bijv. "1978")
+
+## Credits
+* Hulp van Giovanni van 
