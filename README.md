@@ -12,6 +12,9 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * Gebruikte data
 * Credits
 
+## Link naar de applicatie
+Klik hier om de applicatie te gerbuiken/bekijken
+
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * Functionaliteit van het spel werkt niet
