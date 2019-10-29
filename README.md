@@ -13,7 +13,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Credits](#credits)
 
 ## Link naar de applicatie
-Klik hier om de applicatie te gerbuiken/bekijken
+Klik hier om de applicatie te gebruiken/bekijken
 
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
@@ -64,3 +64,4 @@ Die voorwaarden zijn als volgt:
 ## Credits
 * [Hulp van Giovanni Kaaijk](https://github.com/GiovanniKaaijk)
 * [Hulp van Kyle Bot](https://github.com/kylebot0)
+* [Hulp van Sjoerd Beentjes (De Voorhoede)](https://www.voorhoede.nl/nl/)
