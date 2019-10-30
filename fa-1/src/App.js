@@ -10,6 +10,7 @@ import './App.css';
 
 class App extends Component {
     state = {
+        selectedobjects: [],
         objects: []
     }
 
@@ -26,20 +27,17 @@ class App extends Component {
           PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
           PREFIX edm: <http://www.europeana.eu/schemas/edm/>
           PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-          SELECT ?cho ?date ?pic ?type ?title ?typeLabel (SAMPLE(?cho) AS ?choSample) (COUNT(?type) AS ?typeCount) WHERE {
+          SELECT * WHERE {
+            <https://hdl.handle.net/20.500.11840/termmaster14188> skos:narrower* ?type .
             ?cho dc:title ?title .
-             ?cho dct:created ?date .
-             ?cho edm:isShownBy ?pic .
-             ?cho edm:object ?type .
-             FILTER langMatches(lang(?title), "ned")
-             FILTER (!(contains(str(?date), "-")))
-             FILTER (!(contains(str(?date), ")")))
-             FILTER (!(contains(str(?date), "/")))
-             FILTER (xsd:integer(?date))
+            ?cho dct:created ?date .
+            BIND (xsd:gYear(?date) AS ?year)
+            FILTER (?year > xsd:gYear("1500"))
+            ?cho edm:isShownBy ?pic .
+            ?cho edm:object ?type .
+            FILTER langMatches(lang(?title), "ned")
             ?type skos:prefLabel ?typeLabel .
-         } 
-         ORDER BY ASC(?typeCount)
-         LIMIT 1000
+           } LIMIT 200
           `
             // Call the url with the query attached, output data
             fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
@@ -49,6 +47,7 @@ class App extends Component {
             const copyrightPic ="http://collectie.wereldculturen.nl/cc/imageproxy.ashx?server=localhost&port=17581&filename=images/CopyRightImage.jpg";
             let results = json.results.bindings;
             console.log(results.length);
+            console.log(results);
             let itemArray = [];
             
             // The following piece of code was inspired by Giovanni Kaaijk, from https://github.com/GiovanniKaaijk/frontend-applications/blob/master/my-app/src/App.js
@@ -56,10 +55,12 @@ class App extends Component {
             let unique = [];
             for(let i=0; i<results.length; i++){
               if(unique.includes(results[i].date.value)) {
-                  results.splice([i], 1)
-                  console.log("Deleted item from array - Duplicate date");
+                console.log("Will delete item from array - duplicate date: ", results[i].date.value);  
+                results.splice([i], 1);
+                console.log("Have delted item from array - it was not ", results[i].date.value);
               } else {
                   unique.push(results[i].date.value);
+                  console.log("Pushed value: ", results[i].date.value, " in round ", [i]);
               }
             }
             console.log(results.length);
@@ -72,28 +73,34 @@ class App extends Component {
             }
 
             console.log(results.length);
-
-
-            // The following piece of code was written by user CMS, from https://stackoverflow.com/a/281335
-            let filteredResults = results.filter(function (el) {
-              return el !== undefined;
-            });
   
             // The following piece of code was inspired by Kyle Bot, from https://github.com/kylebot0/frontend-applications/blob/master/client/src/app.js
-            for(let i=0; i < filteredResults.length; i++){
-                var item = filteredResults[Math.floor(Math.random() * filteredResults.length)];
+            for(let i=0; i < results.length; i++){
+                var item = results[Math.floor(Math.random() * results.length)];
                 itemArray.push(item);
             }
   
-            itemArray = itemArray.slice(1, 3);
-  
-            console.log(itemArray)
-            this.setState({ objects: itemArray });
+            console.log(itemArray);
+
+            this.setState({ objects: itemArray })
+            this.pushNextObjects();
             })
         
     }
 
-    componentDidMount() {
+
+    pushNextObjects = () => {
+        this.state.selectedobjects.splice(0, 2);
+        console.log("Deleted first 2 entries");
+        for(let i=0; i < 2; i++){
+        this.state.selectedobjects.push(this.state.objects[i]);
+        this.state.objects.splice([i], 1);
+        this.setState(this.state)
+        console.log(this.state.selectedobjects);
+        }
+    }
+
+    componentWillMount(){
         this.runQuery();
     }
 
@@ -129,9 +136,9 @@ class App extends Component {
                         <Route exact path="/" render={props => (
                             <React.Fragment>
                                 <div className="objectsWrap">
-                                <Objects objects={this.state.objects} />
+                                <Objects objects={this.state.selectedobjects} />
                                 </div>
-                                <button onClick={this.runQuery} >Volgende</button> 
+                                <button onClick={this.pushNextObjects}>Volgende</button> 
                             </React.Fragment>
                         )} />
                         <Route path="/about" component={About} />
