@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 export class Object extends Component {
+    // State in which I declare to classnames which are used for showing/hiding the year of creation and link for more info
     state = {
         invisibleClassName: 'invisibleClass',
         visibleClassName: 'visibleClass',
     }
     
+    // This renders the object component
     render() {
         const title = this.props.object.title.value;
         const cho = this.props.object.cho.value;
@@ -17,6 +19,8 @@ export class Object extends Component {
         const invisibleClassName = this.state.invisibleClassName;
         let currentVisibilityClass = "";
 
+        // This code checks wether the year of creation and link for more info should be visible or not
+        // It adds the appropriate className to the currentVisiblityClass, which is the className on the elements that require hiding/showing
         if (answerButtonDisabled === true){
             currentVisibilityClass = visibleClassName;
         }
@@ -25,6 +29,7 @@ export class Object extends Component {
             currentVisibilityClass = invisibleClassName;
         }
 
+        // This is the actual output which is meant for the DOM
         return (
             <div className="singleObject">
                     <p>{ title }</p>

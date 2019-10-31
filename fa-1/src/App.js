@@ -1,3 +1,4 @@
+// Necessary stuff gets imported, like react and react-router-dom for easy routing
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
@@ -60,6 +61,9 @@ class App extends Component {
         this.setState({ answerButtonDisabled: true });
     }
 
+    // This function fires once, on componentWillMount
+    // It retrieves data from the NMVW database and filters the data, after which the retrieved objects get sent to an array in the state
+    // After performing these actions, it fires the pushNextObjects function
     runQuery = () => {
           // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
           // I have edited the code to fit my needs and use my own endpoint
@@ -90,12 +94,19 @@ class App extends Component {
             .then(res => res.json())
             .then(json => {
             
+            // Set the url for the "This image is protected by copyright" picture as a const
             const copyrightPic ="http://collectie.wereldculturen.nl/cc/imageproxy.ashx?server=localhost&port=17581&filename=images/CopyRightImage.jpg";
+            
+            // Put the received data in a let named results
             let results = json.results.bindings;
+            
+            // Create an empty array, the final filtered data will be pushed to this array
             let itemArray = [];
             
             // The following piece of code was inspired by Giovanni Kaaijk, from https://github.com/GiovanniKaaijk/frontend-applications/blob/master/my-app/src/App.js
             // I have edited the code to fit my needs
+            // It loops through the received data and pushes their "date" property to an empty array
+            // If the item in the current loop cycle has a "date" property that's already in the previously mentioned array, the item gets deleted
             let unique = [];
             for(let i=0; i<results.length; i++){
               if(unique.includes(results[i].date.value)) {
@@ -106,6 +117,7 @@ class App extends Component {
               }
             }
 
+            // This loops through all remaining results and deletes the items from which the image url matches with the copyrightPic url
             for(let i=0; i<results.length; i++){
                 if((results[i].pic.value) === copyrightPic) {
                     results.splice([i], 1)
@@ -114,18 +126,25 @@ class App extends Component {
             }
   
             // The following piece of code was inspired by Kyle Bot, from https://github.com/kylebot0/frontend-applications/blob/master/client/src/app.js
+            // This code pushes all remaining results to the itemArray but randomizes the order
+            // This needs to be done so the items shown to the user will be randomized
             for(let i=0; i < results.length; i++){
                 var item = results[Math.floor(Math.random() * results.length)];
                 itemArray.push(item);
             }
 
+            // The items in the itemArray get pushed to the "objects" array in state
             this.setState({ objects: itemArray })
+
+            // Fires pushNextObjects funtion
             this.pushNextObjects();
             })
         
     }
 
-
+    // This object pushes 2 objects from the "objects" array in the state to the "selectedobjects" array in the state
+    // It also removes the 2 pushed objects from the "objects" array
+    // After performing these actions, it enables the answer buttons, changes the current message and disables the next question button
     pushNextObjects = () => {
         this.state.selectedobjects.splice(0, 2);
         for(let i=0; i < 2; i++){
@@ -140,12 +159,16 @@ class App extends Component {
         }
     }
 
+    // This code fires once
+    // It fires the runQuery function to retrieve data and updateScoring function to show the current and high scores
+    // After performing these actions, it disables the next question button
     componentWillMount(){
         this.runQuery();
         this.updateScoring();
         this.setState({ nextButtonDisabled: true });
     }
     
+    // This code renders the application
     render() {
         return (
             <Router>
