@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Object from './Object';
-import PropTypes from 'prop-types';
 
 class Objects extends Component {
     compare = (object) => {
@@ -26,11 +25,6 @@ class Objects extends Component {
             <Object key={object.cho.value} object={object} compare={this.compare} answerButtonDisabled={this.props.answerButtonDisabled} />
         ));
     }
-}
-
-// PropTypes
-Objects.propTypes = {
-    objects: PropTypes.array.isRequired,
 }
 
 export default Objects;

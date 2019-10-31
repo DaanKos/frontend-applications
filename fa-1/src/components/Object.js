@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 
 export class Object extends Component {
     // State in which I declare to classnames which are used for showing/hiding the year of creation and link for more info
@@ -40,11 +39,6 @@ export class Object extends Component {
             </div>
         )
     }
-}
-
-// PropTypes
-Object.propTypes = {
-    object: PropTypes.object.isRequired,
 }
 
 export default Object

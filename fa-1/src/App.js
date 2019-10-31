@@ -185,7 +185,7 @@ class App extends Component {
                                 <p>{ this.state.currentMessage }</p>
                                 </div>
                                 <div className="nextButtonWrap"> 
-                                <button disabled={this.state.nextButtonDisabled} onClick={this.pushNextObjects}>Volgende</button>
+                                <button disabled={this.state.nextButtonDisabled} onClick={this.pushNextObjects}>Volgende vraag</button>
                                 </div> 
                                 <div className="scoringWrap"> 
                                 <div><p>Je huidige score:</p><p>{this.state.currentScore}</p></div>
