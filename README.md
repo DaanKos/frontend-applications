@@ -11,7 +11,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Introductie](#introductie)
 * [Doelgroep](#doelgroep)
 * [Het concept](#het-concept)
-* [Hoe het werkt](#hoe-het-werkt)
+* [Features](#features)
 * [Gebruikte data](#gebruikte-date)
 * [Credits](#credits)
 * [Licentie](#licentie)
@@ -85,13 +85,11 @@ Ik heb voor deze doelgroep gekozen omdat ik denk dat er weinig tot geen mensen u
 
 Toen ik de opdracht voor het eerst hoorde, dacht ik al snel aan gamification. Gamification is een goede en leuke manier om minder interessante data toch leuk te maken. Het ontdekken van de collectie terwijl je een spelletje speelt lijkt mij ideaal, vooral voor kinderen.
 
-## Het Concept
-In deze applicatie kan men de collectie van het NMVW op een speelse manier ontdekken.
-De gebruiker start een game waarbij 2 objecten uit de database van het NMVW naast elkaar worden gezet.
-Hierbij wordt een vraag gesteld, bijvoorbeeld: "Welk van deze 2 objecten is ouder?".
-Wanneer de gebruiker het juiste antwoord geeft volgt een nieuwe vraag en gaat zijn score omhoog.
-Heeft de gebruiker het fout, dan stopt de game en kan de gebruiker opnieuw beginnen.
-Na het beantwoorden van de vraag heeft de gebruiker de mogelijkheid om een van de twee (of beide) objecten in de collectie te bekijken waardoor ze meer over het object te weten kunnen komen.
+## Features
+* Ontdek de collectie van het NMVW op een speelse manier
+* Speel het "Welk object is ouder?" spel: kies het object waarvan jij denkt dat hij ouder is dan de ander
+* Je score wordt bijgehouden
+* Verbeter je eigen high score
 
 ## Hoe het werkt
 Wanneer de gebruiker de applicatie start, worden er 500 objecten uit de collectie database van het NMVW gehaald (meer over deze actie onder "gebruikte data").
