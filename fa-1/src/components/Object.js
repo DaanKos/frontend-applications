@@ -12,16 +12,16 @@ export class Object extends Component {
         const cho = this.props.object.cho.value;
         const pic = this.props.object.pic.value;
         const date = this.props.object.date.value;
-        const isCurrentlyDisabled = this.props.isCurrentlyDisabled;
+        const answerButtonDisabled = this.props.answerButtonDisabled;
         const visibleClassName = this.state.visibleClassName;
         const invisibleClassName = this.state.invisibleClassName;
         let currentVisibilityClass = "";
 
-        if (isCurrentlyDisabled === true){
+        if (answerButtonDisabled === true){
             currentVisibilityClass = visibleClassName;
         }
 
-        if (isCurrentlyDisabled === false){
+        if (answerButtonDisabled === false){
             currentVisibilityClass = invisibleClassName;
         }
 
@@ -30,7 +30,7 @@ export class Object extends Component {
                     <p>{ title }</p>
                     <img className="singleObjectPic" src={ pic } alt={ title }></img>
                     <p className={ currentVisibilityClass }>{ date }</p>
-                    <button disabled={isCurrentlyDisabled} onClick={() => this.props.compare(this.props.object)} >Dit object is ouder!</button>
+                    <button disabled={answerButtonDisabled} onClick={() => this.props.compare(this.props.object)} >Dit object is ouder!</button>
                 <a className={ currentVisibilityClass } href={ cho } target="_blank" rel="noopener noreferrer">Meer info over dit object</a>
             </div>
         )

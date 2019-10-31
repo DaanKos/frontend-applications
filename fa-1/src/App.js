@@ -4,22 +4,25 @@ import Header from './components/layout/Header';
 import Objects from './components/Objects';
 import About from './components/pages/About';
 import Tutorial from './components/pages/Tutorial';
-// This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
-// import uuid from 'uuid';
-// import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+    // The state contains 2 arrays, 1 for all objects, 1 for the 2 objects the user sees
+    // It contains 2 "disabled triggers", which are being used for disabling and enabling buttons on the game page
+    // It contains the current message, which is shown to the user on the game page and reflects their last answer in the game
+    // It contains both the currentscore and highscore, which are retrieved from and written to the session and localstorage
     state = {
         selectedobjects: [],
         objects: [],
-        isCurrentlyDisabled: false,
+        answerButtonDisabled: false,
         nextButtonDisabled: false,
         currentMessage: "Wachtend op je antwoord...",
         currentScore: 0,
         highScore: 0,
     }
 
+    // This function retrieves the currentscore and highscore from the session and localstorage and sends them to their state equivalants
+    // After performing these actions, it enables the next button which allows the user to navigate to the next question
     updateScoring = () => {
         let sessionStorageScore = sessionStorage.getItem("CurrentScore");
         let localStorageScore = localStorage.getItem("HighScore");
@@ -28,6 +31,10 @@ class App extends Component {
         this.setState({ nextButtonDisabled: false });
     }
 
+    // This function fires after the user has given the right answer
+    // It retrieves the currentscore from the sessionstorage, adds 1 point, and pushes it back to the session storage
+    // If the currentscore is higher than the highscore, it sends the currentscore to the highscore in the local storage
+    // After performing these actions, it fires the updateScoring and disableButtons functions
     rightAnswerGiven = () => {
         this.setState({ currentMessage: "Je antwoord is helemaal goed!" });
         let currentScoreValue = sessionStorage.getItem('CurrentScore');
@@ -38,26 +45,20 @@ class App extends Component {
             localStorage.setItem('HighScore', currentScoreValue);
         }
         this.updateScoring();
-        this.disableButtons();
+        this.setState({ answerButtonDisabled: true });
     }
 
+    // This function fires after the user has given the wrong answer
+    // It retrieves the currentscore from the sessionstorage, sets it to 0, and pushes it back to the session storage
+    // After performing these actions, it fires the updateScoring and disableButtons functions
     wrongAnswerGiven = () => {
         this.setState({ currentMessage: "Je antwoord is helaas fout!" });
         let currentScoreValue = sessionStorage.getItem('CurrentScore');
         currentScoreValue = 0;
         sessionStorage.setItem('CurrentScore', currentScoreValue);
         this.updateScoring();
-        this.disableButtons();
+        this.setState({ answerButtonDisabled: true });
     }
-
-    disableButtons = () => {
-        this.setState({ isCurrentlyDisabled: true });
-    }
-
-    enableButtons = () => {
-        this.setState({ isCurrentlyDisabled: false });
-    }
-
 
     runQuery = () => {
           // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
@@ -91,8 +92,6 @@ class App extends Component {
             
             const copyrightPic ="http://collectie.wereldculturen.nl/cc/imageproxy.ashx?server=localhost&port=17581&filename=images/CopyRightImage.jpg";
             let results = json.results.bindings;
-            console.log(results.length);
-            console.log(results);
             let itemArray = [];
             
             // The following piece of code was inspired by Giovanni Kaaijk, from https://github.com/GiovanniKaaijk/frontend-applications/blob/master/my-app/src/App.js
@@ -106,7 +105,6 @@ class App extends Component {
                   unique.push(results[i].date.value);
               }
             }
-            console.log(results.length);
 
             for(let i=0; i<results.length; i++){
                 if((results[i].pic.value) === copyrightPic) {
@@ -114,16 +112,12 @@ class App extends Component {
                     console.log("Deleted item from array - Copyright image");
                 }
             }
-
-            console.log(results.length);
   
             // The following piece of code was inspired by Kyle Bot, from https://github.com/kylebot0/frontend-applications/blob/master/client/src/app.js
             for(let i=0; i < results.length; i++){
                 var item = results[Math.floor(Math.random() * results.length)];
                 itemArray.push(item);
             }
-  
-            console.log(itemArray);
 
             this.setState({ objects: itemArray })
             this.pushNextObjects();
@@ -140,7 +134,7 @@ class App extends Component {
         this.setState(this.state)
         console.log(this.state.selectedobjects);
         console.log(this.state.objects);
-        this.enableButtons();
+        this.setState({ answerButtonDisabled: false });
         this.setState({ currentMessage: "Wachtend op je antwoord..." });
         this.setState({ nextButtonDisabled: true });
         }
@@ -151,29 +145,6 @@ class App extends Component {
         this.updateScoring();
         this.setState({ nextButtonDisabled: true });
     }
-
-    // This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
-    // // Toggle Complete
-    // markComplete = (id) => {
-    //     this.setState( { todos: this.state.todos.map(todo => {
-    //         if(todo.id === id) {
-    //             todo.completed = !todo.completed
-    //         }
-    //         return todo;
-    //     }) });
-    // }
-
-    // // Delete Todo
-    // delTodo = (id) => {
-    //     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    //     .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
-    // }
-    
-    // // Add Todo
-    // addTodo = (title) => {
-    //     axios.post('https://jsonplaceholder.typicode.com/todos', {title, completed: false})
-    //     .then(res => this.setState({ todos: [...this.state.todos, res.data] }))
-    // }
     
     render() {
         return (
@@ -185,7 +156,7 @@ class App extends Component {
                         <Route path="/het-spel" render={props => (
                             <React.Fragment>
                                 <div className="objectsWrap">
-                                <Objects objects={this.state.selectedobjects} rightAnswerGiven={this.rightAnswerGiven} wrongAnswerGiven={this.wrongAnswerGiven} isCurrentlyDisabled={this.state.isCurrentlyDisabled} disableButtons={this.disableButtons} />
+                                <Objects objects={this.state.selectedobjects} rightAnswerGiven={this.rightAnswerGiven} wrongAnswerGiven={this.wrongAnswerGiven} answerButtonDisabled={this.state.answerButtonDisabled} />
                                 </div>
                                 <div className="messageWrap">
                                 <p>{ this.state.currentMessage }</p>

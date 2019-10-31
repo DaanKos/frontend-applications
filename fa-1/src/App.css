@@ -80,6 +80,7 @@ a {
 
 .singleObject button:hover {
     background: #cce5cc;
+    cursor: pointer;
 }
 
 .singleObject button:disabled {
@@ -110,7 +111,7 @@ a {
     font-weight: 600;
 }
 
-.nextButtonWrap button{
+.nextButtonWrap button {
     padding: 1rem;
     margin: .5rem;
     min-width: 20%;
@@ -120,8 +121,12 @@ a {
     background:#fff;
 }
 
-.nextButtonWrap button:disabled{
+.nextButtonWrap button:disabled {
     opacity: .5;
+}
+
+.nextButtonWrap button:hover {
+    cursor: pointer;
 }
 
 .scoringWrap {

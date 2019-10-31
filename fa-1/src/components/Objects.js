@@ -12,11 +12,14 @@ class Objects extends Component {
         if (otherObject.date.value < object.date.value) {
             this.props.wrongAnswerGiven();
         }
+        if (otherObject.date.value === object.date.value) {
+            this.props.rightAnswerGiven();
+        }
     }
 
     render() {
         return this.props.objects.map((object) => (
-            <Object key={object.cho.value} object={object} compare={this.compare} isCurrentlyDisabled={this.props.isCurrentlyDisabled} />
+            <Object key={object.cho.value} object={object} compare={this.compare} answerButtonDisabled={this.props.answerButtonDisabled} />
         ));
     }
 }
