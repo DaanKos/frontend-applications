@@ -120,4 +120,4 @@ Die voorwaarden zijn als volgt:
 * [Hulp van Sjoerd Beentjes (De Voorhoede)](https://www.voorhoede.nl/nl/)
 
 ## Licentie
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/DaanKos/frontend-applications/blob/master/LICENSE)
