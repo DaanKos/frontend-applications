@@ -40,7 +40,7 @@ Gebruikte bronnen/packages:
 * react-router-dom
 * node-fetch
 
-Doorloop dit proces:
+**Doorloop dit proces:**
 
 Clone deze repository
 ```
