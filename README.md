@@ -7,6 +7,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
 * [Bekende fouten](#bekende-fouten)
+* [Lokale installatie](#lokale-installatie)
 * [Introductie](#introductie)
 * [Doelgroep](#doelgroep)
 * [Het concept](#het-concept)
@@ -23,6 +24,9 @@ Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * Soms laden de afbeeldingen niet in, dit heeft te maken met het feit dat de verbinding met de servers waar de afbeeldingen op staan wordt geblokkeerd.
 * Heel zelden worden er 2 identieke objecten naast elkaar gezet, dit zorgt voor een crash. Om het spel te hervatten dient de pagina gerefreshed te worden
 * De huisstijl van het NMVW is niet verwerkt in de applicatie
+
+## Lokale installatie
+Om de applicatie lokaal te installeren, dien je een ```git clone``` uit te voeren
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
