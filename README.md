@@ -14,6 +14,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Hoe het werkt](#hoe-het-werkt)
 * [Gebruikte data](#gebruikte-date)
 * [Credits](#credits)
+* [Licentie](#licentie)
 
 ## Link naar de applicatie
 Klik hier om de applicatie te gebruiken/bekijken
@@ -117,3 +118,6 @@ Die voorwaarden zijn als volgt:
 * [Hulp van Giovanni Kaaijk](https://github.com/GiovanniKaaijk)
 * [Hulp van Kyle Bot](https://github.com/kylebot0)
 * [Hulp van Sjoerd Beentjes (De Voorhoede)](https://www.voorhoede.nl/nl/)
+
+## Licentie
+[MIT](https://choosealicense.com/licenses/mit/)
