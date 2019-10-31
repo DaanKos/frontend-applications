@@ -26,7 +26,50 @@ Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * De huisstijl van het NMVW is niet verwerkt in de applicatie
 
 ## Lokale installatie
-Om de applicatie lokaal te installeren, dien je een ```git clone``` uit te voeren
+Om de applicatie lokaal te installeren, moet je een ```git clone``` uitvoeren.
+
+Voordat je de clone uitvoert:
+* Installeer node.js
+* Installeer een code editor (zoals bijv. Visual Studio Code)
+* Installeer een CLI (command line interface)
+
+Gebruikte bronnen:
+* NPM
+* React
+* react-router-dom
+* node-fetch
+
+Doorloop dit proces:
+
+Clone deze repository
+```
+git clone https://github.com/DaanKos/frontend-applications.git
+```
+Ga naar de juiste folder
+```
+cd frontend-applications/my-app/
+```
+Install used npm packages
+```
+npm install
+```
+Run the application
+```
+npm run start
+```
+
+## Usage
+Start the application
+```
+npm run start
+```
+To compile the code
+```
+npm run build
+```
+
+## Keep up to date
+Make sure you pull the repository once in a while since we are still working on this project, you can do this by using ```git pull```
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
