@@ -95,13 +95,7 @@ Toen ik de opdracht voor het eerst hoorde, dacht ik al snel aan gamification. Ga
 * Verbeter je eigen high score
 
 ## Gebruikte data
-In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen.
-Die voorwaarden zijn als volgt:
-* Het betreft een fysiek object, geen "foto", "negatief", "dia" etc.
-* Er is een foto van het object beschikbaar
-* Er is een nederlandse titel beschikbaar
-* Er is een uri beschikbaar
-* Het herkomstjaar is beschikbaar en is een geheel getal (bijv. "1978")
+In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen. Meer hierover in de wiki onder [SPARQL query](https://github.com/DaanKos/frontend-applications/wiki/SPARQL-query).
 
 ## Credits
 * [Hulp van Giovanni Kaaijk](https://github.com/GiovanniKaaijk)
