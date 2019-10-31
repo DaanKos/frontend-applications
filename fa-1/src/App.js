@@ -11,7 +11,16 @@ import './App.css';
 class App extends Component {
     state = {
         selectedobjects: [],
-        objects: []
+        objects: [],
+        currentScore: 0,
+        highScore: 0,
+    }
+
+    updateScoring = () => {
+        let sessionStorageScore = sessionStorage.getItem("CurrentScore");
+        let localStorageScore = localStorage.getItem("HighScore");
+        this.setState({ currentScore: sessionStorageScore });
+        this.setState({ highScore: localStorageScore })
     }
 
     runQuery = () => {
@@ -102,6 +111,7 @@ class App extends Component {
 
     componentWillMount(){
         this.runQuery();
+        this.updateScoring();
     }
 
     // This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
@@ -136,9 +146,11 @@ class App extends Component {
                         <Route exact path="/" render={props => (
                             <React.Fragment>
                                 <div className="objectsWrap">
-                                <Objects objects={this.state.selectedobjects} />
+                                <Objects objects={this.state.selectedobjects} updateScoring={this.updateScoring}/>
                                 </div>
                                 <button onClick={this.pushNextObjects}>Volgende</button> 
+                                <div><p>Current score: </p><p>{this.state.currentScore}</p></div>
+                                <p></p>
                             </React.Fragment>
                         )} />
                         <Route path="/about" component={About} />

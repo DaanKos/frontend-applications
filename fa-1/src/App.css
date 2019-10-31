@@ -61,6 +61,18 @@ a {
     text-align: center;
 }
 
+.singleObject button {
+    display: block;
+    border-radius: 1rem;
+    border: solid 2px #e4e4e4;
+    background:#fff;
+    padding: 1em;
+}
+
+.singleObject button:hover {
+    background: #cce5cc;
+}
+
 .singleObjectPic {
         height: 200px;
         max-width: auto;
@@ -77,15 +89,3 @@ a {
     background-color: #fff;
 }
 
-.btn {
-    display: inline-block;
-    border: none;
-    background: #555;
-    color: #fff;
-    padding: 7px 20px;
-    cursor: pointer;
-}
-
-btn:hover {
-    background: #666;
-}
