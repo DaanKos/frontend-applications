@@ -19,6 +19,9 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 ## Link naar de applicatie
 Klik hier om de applicatie te gebruiken/bekijken
 
+## Wiki
+Houd het ontwikkelingsproces bij in de [wiki!](https://github.com/DaanKos/frontend-applications/wiki)
+
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
 * Soms worden er 2 objecten naast elkaar gezet die uit hetzelfde jaar komen. Wanneer de gebruiker op zo'n moment antwoord geeft is het antwoord altijd goed.
@@ -88,20 +91,8 @@ Toen ik de opdracht voor het eerst hoorde, dacht ik al snel aan gamification. Ga
 ## Features
 * Ontdek de collectie van het NMVW op een speelse manier
 * Speel het "Welk object is ouder?" spel: kies het object waarvan jij denkt dat hij ouder is dan de ander
-* Je score wordt bijgehouden
+* Houd je score bij
 * Verbeter je eigen high score
-
-## Hoe het werkt
-Wanneer de gebruiker de applicatie start, worden er 500 objecten uit de collectie database van het NMVW gehaald (meer over deze actie onder "gebruikte data").
-Nadat deze objecten zijn opgehaald, krijgt de gebruiker willekeurig 2 van deze objecten voorgeschoteld.
-Hierbij wordt er rekening gehouden met het feit dat beide objecten uit een ander jaar komen.
-De gebruiker ziet dan alleen de naam en de foto van deze 2 objecten.
-Nu is er input van de gebruiker nodig, hij klikt op het object waarvan hij denkt dat hij ouder is dan het andere object.
-Wanneer de gebruiker heeft geklikt, worden de jaartallen van de 2 objecten met elkaar vergeleken en wordt er bepaald of de gebruiker het juiste antwoord heeft gegeven.
-De gebruiker krijgt nu de jaartallen van de objecten te zien, en krijgt feedback over zijn gegeven antwoord.
-Ook komen de links om de objecten in de collectie te bekijken beschikbaar.
-Wanneer de gebruiker het juiste antwoord heeft gegeven, gaat zijn score omhoog en is er een button beschikbaar waarmee hij naar de volgende vraag kan.
-Gaf de gebruiker het verkeerde antwoord, dan eindigt het spel en is er een button beschikbaar waarmee hij het spel opnieuw kan starten.
 
 ## Gebruikte data
 In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen.
