@@ -11,13 +11,16 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Introductie](#introductie)
 * [Doelgroep](#doelgroep)
 * [Het concept](#het-concept)
-* [Hoe het werkt](#hoe-het-werkt)
+* [Features](#features)
 * [Gebruikte data](#gebruikte-date)
 * [Credits](#credits)
 * [Licentie](#licentie)
 
 ## Link naar de applicatie
 Klik hier om de applicatie te gebruiken/bekijken
+
+## Wiki
+Houd het ontwikkelingsproces bij in de [wiki!](https://github.com/DaanKos/frontend-applications/wiki)
 
 ## Bekende fouten
 Ik ben me bewust dat deze fouten in de huidige versie van dit project zitten:
@@ -85,34 +88,14 @@ Ik heb voor deze doelgroep gekozen omdat ik denk dat er weinig tot geen mensen u
 
 Toen ik de opdracht voor het eerst hoorde, dacht ik al snel aan gamification. Gamification is een goede en leuke manier om minder interessante data toch leuk te maken. Het ontdekken van de collectie terwijl je een spelletje speelt lijkt mij ideaal, vooral voor kinderen.
 
-## Het Concept
-In deze applicatie kan men de collectie van het NMVW op een speelse manier ontdekken.
-De gebruiker start een game waarbij 2 objecten uit de database van het NMVW naast elkaar worden gezet.
-Hierbij wordt een vraag gesteld, bijvoorbeeld: "Welk van deze 2 objecten is ouder?".
-Wanneer de gebruiker het juiste antwoord geeft volgt een nieuwe vraag en gaat zijn score omhoog.
-Heeft de gebruiker het fout, dan stopt de game en kan de gebruiker opnieuw beginnen.
-Na het beantwoorden van de vraag heeft de gebruiker de mogelijkheid om een van de twee (of beide) objecten in de collectie te bekijken waardoor ze meer over het object te weten kunnen komen.
-
-## Hoe het werkt
-Wanneer de gebruiker de applicatie start, worden er 500 objecten uit de collectie database van het NMVW gehaald (meer over deze actie onder "gebruikte data").
-Nadat deze objecten zijn opgehaald, krijgt de gebruiker willekeurig 2 van deze objecten voorgeschoteld.
-Hierbij wordt er rekening gehouden met het feit dat beide objecten uit een ander jaar komen.
-De gebruiker ziet dan alleen de naam en de foto van deze 2 objecten.
-Nu is er input van de gebruiker nodig, hij klikt op het object waarvan hij denkt dat hij ouder is dan het andere object.
-Wanneer de gebruiker heeft geklikt, worden de jaartallen van de 2 objecten met elkaar vergeleken en wordt er bepaald of de gebruiker het juiste antwoord heeft gegeven.
-De gebruiker krijgt nu de jaartallen van de objecten te zien, en krijgt feedback over zijn gegeven antwoord.
-Ook komen de links om de objecten in de collectie te bekijken beschikbaar.
-Wanneer de gebruiker het juiste antwoord heeft gegeven, gaat zijn score omhoog en is er een button beschikbaar waarmee hij naar de volgende vraag kan.
-Gaf de gebruiker het verkeerde antwoord, dan eindigt het spel en is er een button beschikbaar waarmee hij het spel opnieuw kan starten.
+## Features
+* Ontdek de collectie van het NMVW op een speelse manier
+* Speel het "Welk object is ouder?" spel: kies het object waarvan jij denkt dat hij ouder is dan de ander
+* Houd je score bij
+* Verbeter je eigen high score
 
 ## Gebruikte data
-In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen.
-Die voorwaarden zijn als volgt:
-* Het betreft een fysiek object, geen "foto", "negatief", "dia" etc.
-* Er is een foto van het object beschikbaar
-* Er is een nederlandse titel beschikbaar
-* Er is een uri beschikbaar
-* Het herkomstjaar is beschikbaar en is een geheel getal (bijv. "1978")
+In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen. Meer hierover in de wiki onder [SPARQL query](https://github.com/DaanKos/frontend-applications/wiki/SPARQL-query).
 
 ## Credits
 * [Hulp van Giovanni Kaaijk](https://github.com/GiovanniKaaijk)
