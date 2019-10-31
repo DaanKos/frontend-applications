@@ -5,7 +5,7 @@ function Header() {
     return (
         <header style={headerStyle}>
             <h1>Welk object is ouder?</h1>
-            <Link style={linkStyle} to="/">Home</Link> | <Link style={linkStyle} to="/about">About</Link>
+            <Link style={linkStyle} to="/">Uitleg</Link> | <Link style={linkStyle} to="/het-spel">Het spel</Link> | <Link style={linkStyle} to="/info">Info</Link>
         </header>
     )
 }

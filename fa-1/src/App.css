@@ -22,9 +22,18 @@ a {
     text-decoration: none;    
 }
 
+.visibleClass {
+    opacity: 100;
+}
+
+.invisibleClass {
+    opacity: 0;
+    display: none !important;
+}
+
 .singleObject {
     background-color: #f6f6f6;
-    padding: 1rem;
+    padding: .75rem;
     width: 50%;
     margin: 1rem;
     border-radius: 1rem;
@@ -44,20 +53,20 @@ a {
     width: 100%;
     text-align: center;
     font-size: 1.5rem;
-    margin: 2% 0 2% 0;
+    margin: .5% 0 .5% 0;
 }
 
 .singleObject button {
     display: block;
     width: 50%;
-    margin: 2% 25% 2% 25%;
+    margin: .5% 25% .5% 25%;
     text-align: center;
 }
 
 .singleObject a {
     display: block;
     width: 50%;
-    margin: 2% 25% 2% 25%;
+    margin: .5% 25% .5% 25%;
     text-align: center;
 }
 
@@ -73,9 +82,75 @@ a {
     background: #cce5cc;
 }
 
+.singleObject button:disabled {
+    background: #f6f6f6;
+    opacity: .5;
+}
+
 .singleObjectPic {
-        height: 200px;
-        max-width: auto;
+    height: 200px;
+    max-width: 95%;
+}
+
+.nextButtonWrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.messageWrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.messageWrap p {
+    font-weight: 600;
+}
+
+.nextButtonWrap button{
+    padding: 1rem;
+    margin: .5rem;
+    min-width: 20%;
+    display: block;
+    border-radius: 1rem;
+    border: solid 2px #e4e4e4;
+    background:#fff;
+}
+
+.nextButtonWrap button:disabled{
+    opacity: .5;
+}
+
+.scoringWrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.scoringWrap div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 25%;
+    margin: .5rem;
+    border-radius: .5rem;
+}
+
+.scoringWrap div:last-of-type {
+    background-color: #ffe557;
+}
+
+.scoringWrap div:first-of-type {
+    background-color: #d0ff8b;
+}
+
+.scoringWrap div p {
+    width: 100%;
+    text-align: center;
 }
 
 .objectsWrap {
@@ -83,6 +158,7 @@ a {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    height: 400px;
 }
 
 .container {

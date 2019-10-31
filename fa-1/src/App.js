@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Objects from './components/Objects';
 import About from './components/pages/About';
+import Tutorial from './components/pages/Tutorial';
 // This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
 // import uuid from 'uuid';
 // import axios from 'axios';
@@ -12,6 +13,9 @@ class App extends Component {
     state = {
         selectedobjects: [],
         objects: [],
+        isCurrentlyDisabled: false,
+        nextButtonDisabled: false,
+        currentMessage: "Wachtend op je antwoord...",
         currentScore: 0,
         highScore: 0,
     }
@@ -21,7 +25,39 @@ class App extends Component {
         let localStorageScore = localStorage.getItem("HighScore");
         this.setState({ currentScore: sessionStorageScore });
         this.setState({ highScore: localStorageScore })
+        this.setState({ nextButtonDisabled: false });
     }
+
+    rightAnswerGiven = () => {
+        this.setState({ currentMessage: "Je antwoord is helemaal goed!" });
+        let currentScoreValue = sessionStorage.getItem('CurrentScore');
+        currentScoreValue = Number(currentScoreValue) + 1;
+        sessionStorage.setItem('CurrentScore', currentScoreValue);
+        let highScoreValue = localStorage.getItem('HighScore');
+        if (highScoreValue < currentScoreValue){
+            localStorage.setItem('HighScore', currentScoreValue);
+        }
+        this.updateScoring();
+        this.disableButtons();
+    }
+
+    wrongAnswerGiven = () => {
+        this.setState({ currentMessage: "Je antwoord is helaas fout!" });
+        let currentScoreValue = sessionStorage.getItem('CurrentScore');
+        currentScoreValue = 0;
+        sessionStorage.setItem('CurrentScore', currentScoreValue);
+        this.updateScoring();
+        this.disableButtons();
+    }
+
+    disableButtons = () => {
+        this.setState({ isCurrentlyDisabled: true });
+    }
+
+    enableButtons = () => {
+        this.setState({ isCurrentlyDisabled: false });
+    }
+
 
     runQuery = () => {
           // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
@@ -46,7 +82,7 @@ class App extends Component {
             ?cho edm:object ?type .
             FILTER langMatches(lang(?title), "ned")
             ?type skos:prefLabel ?typeLabel .
-           } LIMIT 200
+           } LIMIT 1000
           `
             // Call the url with the query attached, output data
             fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
@@ -64,12 +100,10 @@ class App extends Component {
             let unique = [];
             for(let i=0; i<results.length; i++){
               if(unique.includes(results[i].date.value)) {
-                console.log("Will delete item from array - duplicate date: ", results[i].date.value);  
+                console.log("Will delete item from array - duplicate date");  
                 results.splice([i], 1);
-                console.log("Have delted item from array - it was not ", results[i].date.value);
               } else {
                   unique.push(results[i].date.value);
-                  console.log("Pushed value: ", results[i].date.value, " in round ", [i]);
               }
             }
             console.log(results.length);
@@ -77,7 +111,7 @@ class App extends Component {
             for(let i=0; i<results.length; i++){
                 if((results[i].pic.value) === copyrightPic) {
                     results.splice([i], 1)
-                    console.log("Deleted item from array - Copyright image")
+                    console.log("Deleted item from array - Copyright image");
                 }
             }
 
@@ -100,18 +134,22 @@ class App extends Component {
 
     pushNextObjects = () => {
         this.state.selectedobjects.splice(0, 2);
-        console.log("Deleted first 2 entries");
         for(let i=0; i < 2; i++){
         this.state.selectedobjects.push(this.state.objects[i]);
         this.state.objects.splice([i], 1);
         this.setState(this.state)
         console.log(this.state.selectedobjects);
+        console.log(this.state.objects);
+        this.enableButtons();
+        this.setState({ currentMessage: "Wachtend op je antwoord..." });
+        this.setState({ nextButtonDisabled: true });
         }
     }
 
     componentWillMount(){
         this.runQuery();
         this.updateScoring();
+        this.setState({ nextButtonDisabled: true });
     }
 
     // This commented piece of code is from a tutorial (https://www.youtube.com/watch?v=sBws8MSXN7A) I followed, and will be removed soon
@@ -143,17 +181,25 @@ class App extends Component {
                 <div className="App">
                     <div className="container">
                         <Header />
-                        <Route exact path="/" render={props => (
+                        <Route exact path="/" component={Tutorial} />
+                        <Route path="/het-spel" render={props => (
                             <React.Fragment>
                                 <div className="objectsWrap">
-                                <Objects objects={this.state.selectedobjects} updateScoring={this.updateScoring}/>
+                                <Objects objects={this.state.selectedobjects} rightAnswerGiven={this.rightAnswerGiven} wrongAnswerGiven={this.wrongAnswerGiven} isCurrentlyDisabled={this.state.isCurrentlyDisabled} disableButtons={this.disableButtons} />
                                 </div>
-                                <button onClick={this.pushNextObjects}>Volgende</button> 
-                                <div><p>Current score: </p><p>{this.state.currentScore}</p></div>
-                                <p></p>
+                                <div className="messageWrap">
+                                <p>{ this.state.currentMessage }</p>
+                                </div>
+                                <div className="nextButtonWrap"> 
+                                <button disabled={this.state.nextButtonDisabled} onClick={this.pushNextObjects}>Volgende</button>
+                                </div> 
+                                <div className="scoringWrap"> 
+                                <div><p>Je huidige score:</p><p>{this.state.currentScore}</p></div>
+                                <div><p>Je hoogste score:</p><p>{this.state.highScore}</p></div>
+                                </div>
                             </React.Fragment>
                         )} />
-                        <Route path="/about" component={About} />
+                        <Route path="/info" component={About} />
                     </div>
                 </div>
             </Router>

@@ -3,35 +3,20 @@ import Object from './Object';
 import PropTypes from 'prop-types';
 
 class Objects extends Component {
-    state = {
-        isCurrentlyDisabled: false,
-    }
-
     compare = (object) => {
+        // Have to use "o" instead of "object" because the object term is occupied, using "object" would cause problems
         const otherObject = this.props.objects.find((o) => o.cho.value !== object.cho.value)
         if (otherObject.date.value > object.date.value) {
-            console.log("Je hebt het goed");
-            this.setState({ isCurrentlyDisabled : false })
-            let value = sessionStorage.getItem('CurrentScore');
-            value = Number(value) + 1;
-            sessionStorage.setItem('CurrentScore', value);
-            console.log(sessionStorage);
-            this.props.updateScoring();
+            this.props.rightAnswerGiven();
         }
         if (otherObject.date.value < object.date.value) {
-            console.log("Je hebt het fout");
-            this.setState({ isCurrentlyDisabled : false })
-            let value = sessionStorage.getItem('CurrentScore');
-            value = 0;
-            sessionStorage.setItem('CurrentScore', value);
-            console.log(sessionStorage);
-            this.props.updateScoring();
+            this.props.wrongAnswerGiven();
         }
     }
 
     render() {
         return this.props.objects.map((object) => (
-            <Object key={object.cho.value} object={object} compare={this.compare} isCurrentlyDisabled={this.state.isCurrentlyDisabled} />
+            <Object key={object.cho.value} object={object} compare={this.compare} isCurrentlyDisabled={this.props.isCurrentlyDisabled} />
         ));
     }
 }
