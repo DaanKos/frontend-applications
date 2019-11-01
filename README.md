@@ -18,7 +18,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Licentie](#licentie)
 
 ## Link naar de applicatie
-Klik hier om de applicatie te gebruiken/bekijken
+Klik hier om de applicatie te gebruiken/bekijken *(helaas nog niet mogelijk)*
 
 ## Wiki
 Houd het ontwikkelingsproces bij in de [wiki!](https://github.com/DaanKos/frontend-applications/wiki)
