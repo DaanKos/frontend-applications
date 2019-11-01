@@ -171,7 +171,7 @@ class App extends Component {
     // This code renders the application
     render() {
         return (
-            <Router>
+            <Router basename="https://daankos.github.io/frontend-applications/">
                 <div className="App">
                     <div className="container">
                         <Header />
