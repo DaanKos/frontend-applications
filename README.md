@@ -2,7 +2,7 @@
 
 Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolgd van 14-10-2019 t/m 31-10-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
 
-![](https://i.imgur.com/JwHwQwU.png)
+![](https://i.imgur.com/SQ8ccKy.png)
 
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
