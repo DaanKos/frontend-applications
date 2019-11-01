@@ -77,15 +77,15 @@ npm run build
 Als ik nog actief aan dit project werk is het slim om af en toe een ```git pull``` uit te voeren om er zeker van te zijn dat je de meest recente versie gebruikt.
 
 ## Leerdoelen
-- [ ] Mercury
-- [x] Venus
-- [x] Earth (Orbit/Moon)
-- [x] Mars
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
+- [x] Kennis maken met frameworks
+- [x] React basis leren
+- [x] Docs kunnen lezen
+- [x] Docs kunnen schrijven
+- [x] Data ophalen met een SPARQL query
+- [x] Opgehaalde data gebruiken in applicatie/componenten
+- [x] Interactie verwerken in applicatie
+- [x] Concept verwerkelijken d.m.v. werkend prototype
+- [ ] React applicatie succesvol deployen
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
