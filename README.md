@@ -8,6 +8,7 @@ Dit is mijn repository voor het vak Frontend-Applications. Ik heb dit vak gevolg
 * [Link naar de applicatie](#link-naar-de-applicatie)
 * [Bekende fouten](#bekende-fouten)
 * [Lokale installatie](#lokale-installatie)
+* [Leerdoelen](#leerdoelen)
 * [Introductie](#introductie)
 * [Doelgroep](#doelgroep)
 * [Het concept](#het-concept)
@@ -74,6 +75,17 @@ npm run build
 
 ### Up to date blijven
 Als ik nog actief aan dit project werk is het slim om af en toe een ```git pull``` uit te voeren om er zeker van te zijn dat je de meest recente versie gebruikt.
+
+## Leerdoelen
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
