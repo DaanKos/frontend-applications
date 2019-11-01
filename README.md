@@ -89,8 +89,12 @@ Als ik nog actief aan dit project werk is het slim om af en toe een ```git pull`
 
 ## Introductie
 Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
+
 Het NMVW heeft een ontzettend grote collectie, en maar een deel hiervan wordt tentoongesteld in de musea die bij het NMVW horen. 
-Deze grote collectie is online te bekijken, maar hier komen maar weinig mensen op af. Ook is deze collectie moeilijk om te ontdekken, het is vooral gericht op mensen die weten wat ze willen bekijken.
+Deze grote collectie is online te bekijken, maar hier komen maar weinig mensen op af.
+
+Ook is deze collectie moeilijk om te ontdekken, het is vooral gericht op mensen die weten wat ze willen bekijken.
+
 Aan mij de taak om met deze collectie aan de slag te gaan en het aantrekkelijk(er) te maken om de website van de collectie te bezoeken.
 
 ## Doelgroep
